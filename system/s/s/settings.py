@@ -25,7 +25,7 @@ SECRET_KEY = '9*!2xf3sv+5e(nn_wd45rxl=22f4t!%%3hfy+i(wo(ft4ja5&$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'corsheaders',    
 ]
 
 MIDDLEWARE = [
@@ -50,12 +51,38 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = ()
+
+CORS_ALLOW_METHODS = (
+ 'DELETE',
+ 'GET',
+ 'OPTIONS',
+ 'PATCH',
+ 'POST',
+ 'PUT',
+ 'VIEW',
+)
+
+CORS_ALLOW_HEADERS = (
+ 'accept',
+ 'accept-encoding',
+ 'authorization',
+ 'content-type',
+ 'dnt',
+ 'origin',
+ 'user-agent',
+ 'x-csrftoken',
+ 'x-requested-with',
+)
+
 ROOT_URLCONF = 's.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'frontend')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,10 +143,14 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+ os.path.join(BASE_DIR, "frontend"),
+]
