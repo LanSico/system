@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Student(models.Model):
+    Id=models.Autofield()
     UserName = models.CharField(max_length=20)
     PassWord = models.CharField(max_length=20)
     Email = models.CharField(max_length=30)
