@@ -18,7 +18,7 @@ class Student(models.Model):
 
 
 class ClubAdmin(Student):
-    Club = models.charField(max_length=30)
+    Club = models.CharField(max_length=30)
 
     def __str__(self):
         return self.UserName
@@ -28,7 +28,7 @@ class Activity(models.Model):
     Act_id = models.AutoField(primary_key=True)
 
     Title = models.CharField(max_length=100)
-    Content = models.charField(max_length=400)
+    Content = models.CharField(max_length=400)
 
     StartTime = models.DateTimeField()
     EndTime = models.DateTimeField()
