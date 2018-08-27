@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from app import views_2
 urlpatterns = [
-    path('3/', views_2.index),
+    path('GetLoginInfo/', views_2.GetLoginInfo),
+    path('GetRsaKey/', views_2.GetRsaKey),
     path('admin/', admin.site.urls),
 ]

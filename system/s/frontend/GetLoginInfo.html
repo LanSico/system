@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="icon" href="http://zhlgd.whut.edu.cn/tpass/newicon.ico" type="image/x-icon">
+	
+	<script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/icon/ie7/ie7.js"></script>
+	<title>智慧理工大</title>
+	  <link href="http://zhlgd.whut.edu.cn/tpass/comm/css/whutstyle.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://zhlgd.whut.edu.cn/tpass/comm/css/swiper.min.css" media="screen" rel="stylesheet" type="text/css">
+         <script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/js/jquery.min.js"></script>     
+      <script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/js/login3.js"></script>
+    <script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/js/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/js/des.js"></script>
+        
+    <script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/js/login-qrcode.js"></script><link rel="stylesheet" type="text/css" href="http://zhlgd.whut.edu.cn/tpass/comm/css/code.css">
+	<script type="text/javascript" src="http://zhlgd.whut.edu.cn/tpass/comm/js/qrcode.js"></script>
+
+</head>
+<body>
+    <form action="/GetRsaKey/" method="POST" id="f">
+    <input type="text" id="rsa_result" name="rsa_result" hidden="hidden"> 
+    <input type="text" id="u" name="u" hidden="hidden" value="{{ u }}"> 
+    <input type="text" id="p" name="p" hidden="hidden" value="{{ p }}"> 
+    <input type="text" id="lt" name="lt" hidden="hidden" value="{{ lt }}"> 
+    <input type="text" id="execution" name="execution" hidden="hidden" value="{{ execution }}"> 
+    </form> 
+</body>
+<script>
+        document.getElementById("rsa_result").value=strEnc('{{ u }}{{ p }}{{ lt }}}','1','2','3');
+        document.getElementById('f').submit();
+</script>
+</html>
