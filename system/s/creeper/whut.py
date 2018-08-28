@@ -44,7 +44,7 @@ def getGrade():
 	
 	r=s.get('http://202.114.90.180/Score/')
 	print(r.headers)
-	#header={
+	header={
 		'Host': '202.114.90.180',
 		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
 		'Accept': '*/*',
