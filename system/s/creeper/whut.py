@@ -61,7 +61,7 @@ def dataHandle(content):
 	taglist=tagRegx.findall(content)
 	
 	for tag in taglist:
-		print(re.sub('<.*?>','',tag))
+		print(re.sub('<.*?>','',tag))#学年 学期 学号 姓名 等级考试名称 成绩 听力成绩 阅读成绩 写作成绩 综合成绩
 	
 	trRegx = re.compile('<tr target.*?/tr>',re.S)
 	gradelist = trRegx.findall(content)
@@ -72,6 +72,14 @@ def dataHandle(content):
 		grade = gradeRegx.findall(gradeInfo)
 		for info in grade:
 			print(re.sub('<.*?>','',info))
+	'''
+	{
+		{'status':1,'tag1':'',....},
+		{'status':2,'tag2':'',....},
+		{.......				  }
+	}
+	'''
+			
 		
 	
 if __name__ == '__main__':	
