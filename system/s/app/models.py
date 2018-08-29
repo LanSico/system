@@ -9,7 +9,7 @@ class Student(models.Model):
     UserName = models.CharField(max_length=20)
     PassWord = models.CharField(max_length=20)
     Email = models.CharField(max_length=30)
-    LastChangeTime = models.DateTimeField(auto_now_add=True)
+    LastChangeTime = models.DateTimeField(auto_now=True)
 
     Tag = models.TextField(max_length=30, null=True)
 
@@ -28,13 +28,20 @@ class Activity(models.Model):
     Act_id = models.AutoField(primary_key=True)
 
     Title = models.CharField(max_length=100)
-    Content = models.CharField(max_length=400)
+    Content = models.TextField()
 
-    StartTime = models.DateTimeField()
-    EndTime = models.DateTimeField()
-    ReleaseTime = models.DateTimeField(auto_created=True)
+    BMStartTime = models.DateTimeField()
+    BMEndTime = models.DateTimeField()
+    CTStartTime = models.DateTimeField()
+    CTEndTime = models.DateTimeField()
+    Kind=models.CharField(max_length=15)
+    Level=models.CharField(max_length=15)
+    Holder=models.CharField(max_length=30)
+    Allower=models.CharField(max_length=30)
+    Tag=models.TextField()
+    ReleaseTime = models.DateTimeField(auto_now_add=True)
 
-    LastChangeTime = models.DateTimeField(auto_now_add=True)
+    LastChangeTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.Title
