@@ -31,7 +31,7 @@ headers = {'Host': 'recognition.image.myqcloud.com',
            }
 files = {'appid': (None,appid),
     'bucket': (None,bucket),
-    'image': ('1.jpg',open(r'I:\DESKTOP\test.png','rb'),'image/jpeg')
+    'image': ('1.jpg',open(r'test.png','rb'),'image/jpeg')
     }     
 
 r = requests.post(url, files=files,headers=headers)
