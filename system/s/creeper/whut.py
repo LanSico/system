@@ -43,8 +43,8 @@ def getGrade():
 	#print(r.headers)
 	
 	r=s.get('http://202.114.90.180/Score/')
-	print(r.headers)
-	#header={
+	#print(r.headers)
+	header={
 		'Host': '202.114.90.180',
 		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
 		'Accept': '*/*',
@@ -57,6 +57,8 @@ def getGrade():
 	dataHandle(r.text)
 
 def dataHandle(content):
+	jsondata={}
+	
 	tagRegx=re.compile('<th .*?/th>')
 	taglist=tagRegx.findall(content)
 	
@@ -66,39 +68,16 @@ def dataHandle(content):
 	trRegx = re.compile('<tr target.*?/tr>',re.S)
 	gradelist = trRegx.findall(content)
 	
+	#print(taglist)
+	#print(gradelist)
+	
 	gradeRegx = re.compile('<td>.*?</td>')
 	
 	for gradeInfo in gradelist:
 		grade = gradeRegx.findall(gradeInfo)
 		for info in grade:
 			print(re.sub('<.*?>','',info))
-	'''
-{  
-		"tags":["学年",
-				"学期",
-				"学号",
-				"姓名",
-				"等级考试名称",
-				"成绩",
-				"听力成绩",
-				"阅读成绩",
-				"写作成绩",
-				"综合成绩"
-						],
 
-        "data":[  
-            {  
-                
-            },  
-            {  
-                
-            },  
-            {  
-                
-            }  
-        ]  
-}
-	'''
 			
 		
 	
