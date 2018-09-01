@@ -58,26 +58,38 @@ def getGrade():
 
 def dataHandle(content):
 	jsondata={}
+	#写入查询状态和返回文本消息
+	jsondata["status"]="200"
+	jsondata["msg"]="SUCCESS"
+	
+	#开始枚举标签
+	taglist=[]
 	
 	tagRegx=re.compile('<th .*?/th>')
-	taglist=tagRegx.findall(content)
+	taglist_raw=tagRegx.findall(content)
 	
-	for tag in taglist:
-		print(re.sub('<.*?>','',tag))#学年 学期 学号 姓名 等级考试名称 成绩 听力成绩 阅读成绩 写作成绩 综合成绩
-	
-	trRegx = re.compile('<tr target.*?/tr>',re.S)
-	gradelist = trRegx.findall(content)
-	
-	#print(taglist)
-	#print(gradelist)
-	
-	gradeRegx = re.compile('<td>.*?</td>')
-	
-	for gradeInfo in gradelist:
-		grade = gradeRegx.findall(gradeInfo)
-		for info in grade:
-			print(re.sub('<.*?>','',info))
+	for tag in taglist_raw:
+		taglist.append(re.sub('<.*?>','',tag))#e.g 学年 学期 学号 姓名 等级考试名称 成绩 听力成绩 阅读成绩 写作成绩 综合成绩
+	print(taglist)
 
+	jsondata["tags"]=taglist
+	#开始枚举成绩
+	trRegx = re.compile('<tr target.*?/tr>',re.S)
+	gradelist_raw = trRegx.findall(content)
+	
+	data=[]
+	gradeRegx = re.compile('<td>.*?</td>')
+	for gradeInfo in gradelist_raw:
+		grade = gradeRegx.findall(gradeInfo)
+
+		gradelist={}
+		for tag,info in enumerate(grade):
+			gradelist[str(tag)]=re.sub('<.*?>','',info)
+		data.append(gradelist)
+
+	jsondata["data"]=data
+	print(jsondata)
+	
 			
 		
 	
