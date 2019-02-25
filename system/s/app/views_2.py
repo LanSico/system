@@ -100,8 +100,8 @@ def index(request):
 	return render(request,"index.html")
 
 def user_login(request):
-	u_name=request.GET.get("username")
-	u_psd=request.GET.get("password")
+	u_name=request.POST.get("username")
+	u_psd=request.POST.get("password")
 	try:
 		us=Student.objects.get(UserName=u_name)
 	except:
