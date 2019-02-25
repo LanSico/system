@@ -20,4 +20,7 @@ urlpatterns = [
     path('GetLoginInfo/', views_2.GetLoginInfo),
     path('GetRsaKey/', views_2.GetRsaKey),
     path('admin/', admin.site.urls),
+    path('',views_2.index),
+
+    path('user/login/',views_2.user_login)
 ]

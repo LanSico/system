@@ -3,6 +3,7 @@ from django.http import *
 import urllib
 import re
 import http.cookiejar
+from app.models import *
 
 #使服务器保存爬虫cookie
 cj = http.cookiejar.CookieJar()
@@ -94,3 +95,22 @@ def GetRsaKey(request):
 	cont=res.read().decode("utf-8")
 	print(cont)
 	return HttpResponse(cont)
+
+def index(request):
+	return render(request,"index.html")
+
+def user_login(request):
+	u_name=request.GET.get("username")
+	u_psd=request.GET.get("password")
+	try:
+		us=Student.objects.get(UserName=u_name)
+	except:
+		return HttpResponse('{"status_code":"404",json:{"error":"用户未激活"}}')
+	try:
+		us=Student.objects.get(UserName=u_name,PassWord=u_psd)
+	except:
+		return HttpResponse('{"status_code":"400",json:{"error":"用户名或密码错误"}}')
+	else:
+		return HttpResponse('{"status_code":"200",json:{"status":true}}')
+		
+	
