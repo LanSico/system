@@ -105,12 +105,12 @@ def user_login(request):
 	try:
 		us=Student.objects.get(UserName=u_name)
 	except:
-		return HttpResponse('{"status_code":"404",“json”:{"error":"用户未激活"}}')
+		return HttpResponse('{"status_code":"404","json":{"error":"用户未激活"}}')
 	try:
 		us=Student.objects.get(UserName=u_name,PassWord=u_psd)
 	except:
-		return HttpResponse('{"status_code":"400",“json”:{"error":"用户名或密码错误"}}')
+		return HttpResponse('{"status_code":"400","json":{"error":"用户名或密码错误"}}')
 	else:
-		return HttpResponse('{"status_code":"200",“json”:{"status":true}}')
+		return HttpResponse('{"status_code":"200","json":{"status":true}}')
 		
 	
