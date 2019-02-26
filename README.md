@@ -35,11 +35,6 @@ success:
 failure:
     status_code=400
     json={
-        "error": "请求参数错误"
-    }
-failure:
-    status_code=400
-    json={
         "error": "用户名已经存在"
     }
 ```
