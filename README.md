@@ -38,7 +38,7 @@ failure:
         "error": "用户名已经存在"
     }
 ```
-### 登录
+### 登录 finished in 2
 ```
 url:
     /user/login/
