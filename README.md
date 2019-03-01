@@ -68,7 +68,7 @@ failure:
         "error": "用户不存在"
     }
 ```
-### 登出
+### 登出 2
 ```
 url:
     /user/logout/
