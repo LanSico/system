@@ -111,6 +111,14 @@ def user_login(request):
 	except:
 		return HttpResponse('{"status_code":"400","json":{"error":"用户名或密码错误"}}')
 	else:
-		return HttpResponse('{"status_code":"200","json":{"status":true}}')
+		request.session["user_id"]=us.User_id
+		return HttpResponse('{"status_code":"200","json":{"status":“true”}}')
+
+def user_logout(request):
+	if request.session["user_id"]:
+		request.session["user_id"]=""
+		return HttpResponse({"status":"200","json":{"status":"true"}})
+	else:
+		return HttpResponse({"status":"404","json":{"error":"用户未登录"}})
 		
 	
