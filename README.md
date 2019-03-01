@@ -16,7 +16,7 @@
     - [登出](#登出)
 
 ## 用户操作
-### 注册新用户
+### 注册新用户 1
 ```
 url:
     /user/
@@ -36,6 +36,11 @@ failure:
     status_code=400
     json={
         "error": "用户名已经存在"
+    }
+illegal:
+    status_code=403
+    json={
+        "error": "非法请求"
     }
 ```
 ### 登录 finished in 2
