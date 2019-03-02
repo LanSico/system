@@ -7,7 +7,7 @@ class Student(models.Model):
     User_id = models.AutoField(primary_key=True)
 
     UserName = models.CharField(max_length=24)
-    PassWord = models.CharField(max_length=24,min_length=6)
+    PassWord = models.CharField(max_length=24)
     Email = models.CharField(max_length=30)
     LastChangeTime = models.DateTimeField(auto_now=True)
 
