@@ -25,7 +25,6 @@ method:
 params:
     *:username (formData)
     *:password (formData)
-    *:email (formData)
 success:
     status_code=200
     json={
