@@ -14,6 +14,9 @@
     - [注册新用户](#注册新用户)
     - [登录](#登录)
     - [登出](#登出)
+    
+- [资源操作](#资源操作)
+    - [获取轮播图](#获取轮播图)
 
 ## 用户操作
 ### 注册新用户 1
@@ -83,3 +86,43 @@ failure:
     json={
         "error": "用户未登录"
     }
+```    
+## 资源操作
+### 获取轮播图
+```
+url:
+    /res/banner/
+method:
+    GET
+success:
+    status_code: 200
+    json=[
+        "title": str,
+        "image": str, (url)
+        "target": str, (url)
+        "index": int
+    ]
+```
+### 获取推荐比赛
+```
+url:
+    /res/recommend/
+method:
+    GET
+success:
+    status_code: 200
+    json=[
+        "title": str,
+        "summary": str,
+        "image": str, (url)
+        "target": str, (url)
+        "index": int,
+        "related_user": [  
+            {
+                "id": int,
+                "avatar": str,  # 头像缩略图
+                "name": str, 
+            }
+        ]
+    ]
+```
