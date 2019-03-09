@@ -17,6 +17,7 @@
     
 - [资源操作](#资源操作)
     - [获取轮播图](#获取轮播图)
+    - [获取推荐比赛](#获取推荐比赛)
 
 ## 用户操作
 ### 注册新用户 1
@@ -45,7 +46,7 @@ illegal:
         "error": "非法请求"
     }
 ```
-### 登录 finished in 2
+### 登录
 ```
 url:
     /user/login/
@@ -70,7 +71,7 @@ failure:
         "error": "用户不存在"
     }
 ```
-### 登出 2
+### 登出
 ```
 url:
     /user/logout/
@@ -121,8 +122,27 @@ success:
             {
                 "id": int,
                 "avatar": str,  # 头像缩略图
-                "name": str, 
+                "name": str
             }
         ]
+    ]
+```
+### 获取比赛列表
+```
+url:
+    /res/contest/
+method:
+    GET
+success:
+    status_code: 200
+    json=[
+        "title": str,
+        "sponsor": str,
+        "image": str, (url)
+        "target": str, (url)
+        "index": int,
+        "color": str,  # 修饰颜色
+        "time_start": str,  # 报名时间
+        "time_end": str
     ]
 ```
