@@ -17,7 +17,8 @@
     
 - [资源操作](#资源操作)
     - [获取轮播图](#获取轮播图)
-    - [获取推荐比赛](#获取推荐比赛)
+    - [获取一定数量的推荐比赛](#获取推荐比赛)
+    - [获取一定数量的比赛列表](#获取一定数量的比赛列表)
 
 ## 用户操作
 ### 注册新用户 1
@@ -104,12 +105,14 @@ success:
         "index": int
     ]
 ```
-### 获取推荐比赛
+### 获取一定数量的推荐比赛
 ```
 url:
     /res/recommend/
 method:
     GET
+params:
+    *:num
 success:
     status_code: 200
     json=[
@@ -127,12 +130,14 @@ success:
         ]
     ]
 ```
-### 获取比赛列表
+### 获取一定数量的比赛列表
 ```
 url:
     /res/contest/
 method:
     GET
+params:
+    *:num
 success:
     status_code: 200
     json=[
