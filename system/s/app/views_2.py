@@ -117,8 +117,8 @@ def user_login(request):
 def user_logout(request):
 	if request.session["user_id"]:
 		request.session["user_id"]=""
-		return HttpResponse('{"status":"200","json":{"status":"true"}}')
+		return HttpResponse('{"status_code":"200","json":{"status":"true"}}')
 	else:
-		return HttpResponse('{"status":"404","json":{"error":"用户未登录"}}')
+		return HttpResponse('{"status_code":"404","json":{"error":"用户未登录"}}')
 		
 	
